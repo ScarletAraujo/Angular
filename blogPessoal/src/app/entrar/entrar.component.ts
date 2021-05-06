@@ -11,12 +11,11 @@ import { AuthService } from '../service/auth.service';
 })
 export class EntrarComponent implements OnInit {
 
-  constructor(private auth: AuthService, private router: Router) { }
-
   userLogin : UserLogin = new UserLogin()
 
-  ngOnInit(){
+  constructor(private auth: AuthService, private router: Router) { }
 
+  ngOnInit(){
     window.scroll(0,0)
   }
 
@@ -30,6 +29,7 @@ export class EntrarComponent implements OnInit {
       environment.id= this.userLogin.id
 
       this.router.navigate(['/inicio'])
+      
     }, erro => {
       if(erro.status == 500){
         alert('Usuário ou senha inválido')
